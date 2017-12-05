@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="src/css/index.css">
+  <link rel="stylesheet" href="src/css/header.css">
+  <link rel="stylesheet" href="src/css/aside.css">
+  <link rel="stylesheet" href="src/css/game-area.css">
+  <link rel="stylesheet" href="src/css/canvas.css">
+
+  <title>Projeto Computação Gráfica</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__logo">
+      <img class="header__img" src="src/img/logo2.png" alt="">
+    </div>
+    <div class="header__info">
+      <h1 class="title">
+        Projeto de Transformações Geométricas
+      </h1>
+      <p class="subtitle">Jéfferson</p>
+      <p class="subtitle">Gabriel</p>
+    </div>
+
+  </header>
+  <section class="app">
+    <aside class="aside">
+      <div class="objectos">
+        <div id="circle" class="circle">Circulo</div>
+      </div>
+      <section class="dashboard-area">
+        <div class="transformacoes">
+          <div class="transformacao translacao">
+            Translação
+            <div>
+              <label for="">X: </label>
+              <input type="number" id="translacaoX" type="text">
+            </div>
+            <br>
+            <div>
+              <label for="">Y: </label>
+              <input type="number" id="translacaoY" type="text">
+            </div>
+          </div>
+          <div class="transformacao rotacao">Rotação
+            <div>
+              <label for="">X: </label>
+              <input type="number" id="rotacaoX" type="text">
+            </div>
+            <br>
+            <div>
+              <label for="">Y: </label>
+              <input type="number" id="rotacaoY" type="text">
+            </div>
+          </div>
+          <div class="transformacao escala">Escala
+            <div>
+              <label for="">X: </label>
+              <input type="number" id="escalaX" type="text">
+            </div>
+            <br>
+            <div>
+              <label for="">Y: </label>
+              <input type="number" id="escalaY" type="text">
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </aside>
+
+    <main class="game-area">
+      <div class="action-area">
+        <button id="botao-aplicar-transformacao">Aplicar</button>
+        <button>Reset</button>
+      </div>
+      <canvas id="canvas-game-area" class="canvas-game" width="1150" height="600"></canvas>
+    </main>
+  </section>
+
+  <script src="src/js/index.js"></script>
+</body>
+
+</html>

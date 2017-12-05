@@ -1,0 +1,26 @@
+.header {
+  background-color: #0189c5;
+  color: #fff;
+  padding: 0.5rem 1rem;
+}
+
+.header__logo {
+  width: 6rem;
+  display: inline-block;
+  width: 13%;
+}
+
+.header__img {
+  width: 10rem;
+}
+
+.header__info {
+  display: inline-block;
+  margin: auto;
+  text-align: center;
+  width: 85%;
+}
+
+.title {
+  font-size: 1.2rem;
+}
