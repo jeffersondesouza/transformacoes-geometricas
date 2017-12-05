@@ -1,10 +1,3 @@
-const translacaoInitX = 0;
-const translacaoInitY = 0;
-const rotacaoInitX = 0;
-const rotacaoInitY = 0;
-const escalaInitX = 150;
-const escalaInitY = 150;
-
 
 
 /* 
@@ -110,14 +103,68 @@ function Iniciar() {
  */
 /* window.addEventListener('keydown', KeyDown, true);
 */
-// Iniciar(); 
 
+
+let translacaoX = 250;
+let translacaoY = 150;
+let escalaX = 150;
+let escalaY = 150;
+let rotacaoX = 0;
+let rotacaoY = 0;
+
+let lastTranslacaoX;
+let lastTranslacaoY;
+let lastRotacaoX;
+let lastRotacaoY;
+let lastEscalaX;
+let lastEscalaY;
+
+atualizarLastTransformations();
+
+const canvas = document.getElementById("canvas-game-area");
+const ctx = canvas.getContext("2d");
+
+
+function atualizarLastTransformations() {
+  lastTranslacaoX = translacaoX;
+  lastTranslacaoY = translacaoY;
+  lastRotacaoX = rotacaoX;
+  lastRotacaoY = rotacaoY;
+  lastEscalaX = escalaX;
+  lastEscalaY = escalaY;
+}
+
+function desenhar() {
+
+  ctx.clearRect(lastTranslacaoX, lastTranslacaoY, lastEscalaX, lastEscalaY);
+
+  ctx.beginPath();
+  ctx.rect(translacaoX, translacaoY, escalaX, escalaY);
+  ctx.fill();
+  ctx.closePath();
+
+  atualizarLastTransformations();
+}
+
+function atualizar() {
+
+  translacaoX = document.getElementById('translacaoX').value || translacaoX;
+  translacaoY = document.getElementById('translacaoY').value || translacaoY;
+  rotacaoX = document.getElementById('rotacaoX').value || rotacaoX;
+  rotacaoY = document.getElementById('rotacaoY').value || rotacaoY;
+  escalaX = document.getElementById('escalaX').value || escalaX;
+  escalaY = document.getElementById('escalaY').value || escalaY;
+
+
+  //limparTela();
+  desenhar();
+}
 
 function onTransformacoes() {
+
   document.querySelector('#botao-aplicar-transformacao')
     .addEventListener('click', (event) => {
-      console.log('transformação')
-
+      atualizar();
     });
 }
 
@@ -125,16 +172,59 @@ function onReset() {
   document.querySelector('#botao-reset')
     .addEventListener('click', (event) => {
       console.log('reset')
-
+      desenharFormGeometricaInicial();
     });
 }
 
 function inciar() {
+
+  document.querySelector('.quadrado')
+    .addEventListener('click', (event) => {
+      atualizar();
+    });
+
   onTransformacoes();
   onReset();
 
 }
 
-(function () {
-  inciar();
-})();
+
+inciar();
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* var canvas = document.getElementById("canvas-game-area");
+var ctx = canvas.getContext("2d");
+var x = canvas.width/2;
+var y = canvas.height-30;
+var dx = 2;
+var dy = -2;
+
+
+
+function drawBall() {
+  ctx.beginPath();
+  ctx.arc(x, y, 10, 0, Math.PI*2);
+  ctx.fillStyle = "#0095DD";
+  ctx.fill();
+  ctx.closePath();
+}
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawBall();
+  x += dx;
+  y += dy;
+}
+
+setInterval(draw, 10); */
