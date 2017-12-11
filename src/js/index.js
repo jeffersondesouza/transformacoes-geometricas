@@ -1,8 +1,8 @@
 
 
 
-let translacaoX = 0;
-let translacaoY = 0;
+let translacaoX = 500;
+let translacaoY = 200;
 let escalaX = 150;
 let escalaY = 150;
 let rotacaoX = 0;
@@ -41,7 +41,6 @@ function desenhar() {
     ctx.rotate(0)
     ctx.rotate(rotacaoX * Math.PI / 180)
   }
-
   ctx.fillRect(translacaoX, translacaoY, escalaX, escalaY);
   ctx.closePath();
   atualizarLastTransformations();
@@ -49,11 +48,12 @@ function desenhar() {
 
 function atualizar() {
 
-  translacaoX = document.getElementById('translacaoX').value || translacaoX;
-  translacaoY = document.getElementById('translacaoY').value || translacaoY;
-  rotacaoX = document.getElementById('rotacaoX').value || rotacaoX;
-  escalaX = document.getElementById('escalaX').value || escalaX;
-  escalaY = document.getElementById('escalaY').value || escalaY;
+  translacaoX += parseFloat(document.getElementById('translacaoX').value || 0);
+  translacaoY += parseFloat(document.getElementById('translacaoY').value || 0);
+  rotacaoX = parseFloat(document.getElementById('rotacaoX').value) || rotacaoX;
+
+  escalaX = escalaX + (parseFloat(document.getElementById('escalaX').value)||0);
+  escalaY = escalaY + (parseFloat(document.getElementById('escalaY').value) ||0);
 
   desenhar();
 }
@@ -69,13 +69,13 @@ function onTransformacoes() {
 function onReset() {
   document.querySelector('#botao-reset')
     .addEventListener('click', (event) => {
-      translacaoX = 0;
-      translacaoY = 0;
+      translacaoX = 500;
+      translacaoY = 200;
       escalaX = 150;
       escalaY = 150;
       rotacaoX = 0;
       desenhar();
-      
+
     });
 }
 
