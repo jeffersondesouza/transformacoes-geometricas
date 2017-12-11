@@ -135,14 +135,14 @@ function atualizarLastTransformations() {
 }
 
 function desenhar() {
-
+  
   ctx.clearRect(lastTranslacaoX, lastTranslacaoY, lastEscalaX, lastEscalaY);
-
+  ctx.rotate(0)
+  
   ctx.beginPath();
-  ctx.rect(translacaoX, translacaoY, escalaX, escalaY);
-  ctx.fill();
+  ctx.rotate(rotacaoX*Math.PI/180)
+  ctx.fillRect(translacaoX, translacaoY, escalaX, escalaY);
   ctx.closePath();
-
   atualizarLastTransformations();
 }
 
