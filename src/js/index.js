@@ -1,8 +1,8 @@
 
 
 
-let translacaoX = 250;
-let translacaoY = 150;
+let translacaoX = 0;
+let translacaoY = 0;
 let escalaX = 150;
 let escalaY = 150;
 let rotacaoX = 0;
@@ -23,7 +23,6 @@ function atualizarLastTransformations() {
   lastTranslacaoX = translacaoX;
   lastTranslacaoY = translacaoY;
   lastRotacaoX = rotacaoX;
-  lastRotacaoY = rotacaoY;
   lastEscalaX = escalaX;
   lastEscalaY = escalaY;
 }
@@ -70,18 +69,19 @@ function onTransformacoes() {
 function onReset() {
   document.querySelector('#botao-reset')
     .addEventListener('click', (event) => {
-      console.log('reset')
-      desenharFormGeometricaInicial();
+      translacaoX = 0;
+      translacaoY = 0;
+      escalaX = 150;
+      escalaY = 150;
+      rotacaoX = 0;
+      desenhar();
+      
     });
 }
 
 function inciar() {
 
-  document.querySelector('.quadrado')
-    .addEventListener('click', (event) => {
-      atualizar();
-    });
-
+  atualizar();
   onTransformacoes();
   onReset();
 

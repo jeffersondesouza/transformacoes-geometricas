@@ -5,6 +5,19 @@
     background-color: #fff;
 }
 
+.dashboard-area {
+    padding: 0.5rem;
+    width: 13rem;
+}
+
+.transformacao {
+    margin-bottom: 1.5rem;
+}
+
+.transformacoes__title {
+    margin-bottom: .5rem;
+}
+
 .objectos {
     min-height: 10rem;
     background-color: rgb(183, 134, 207);
